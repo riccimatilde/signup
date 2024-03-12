@@ -1,0 +1,31 @@
+@model List<Prodotto>
+
+@{
+    ViewData["Title"] = "Cart";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Articolo</th>
+            <th>Quantità</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach(var item in Model){
+                <tr>
+                    <td>@item.Articolo</td>
+                    <td>@item.Quantita</td>
+                    <td>
+                    <form method="post" asp-controller="Home" asp-action="RimuoviDalCarrello">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit">Rimuovi dal carrello</button>
+                    </form>
+                </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+@model Utente
+@{
+    ViewData["Title"] = "SignUp";
+}
+
+<form class="m-2" method="post" asp-action="Conferma">
+    <div class="form-group row justify-content-center">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" type="text" class="form-control" id="Email" name="Email" required>
+    </div>
+    <br>
+    <div class="form-group row justify-content-center">
+        <label asp-for="Password">Password</label>
+        <input type="password" asp-for="Password" id="password">
+    </div>
+    <br><br>
+        <button type="submit" class="btn btn-primary">Registrati</button>
+        <a asp-area="" asp-controller="Home" asp-action="Login">Hai già un account? Accedi</a>
+    </form>
